@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react"
+import { Link } from "react-router-dom"
 import skullLogo from "../assets/skull-logo.svg"
 
 function Navbar() {
@@ -30,47 +31,47 @@ function Navbar() {
   return (
     <header className="navbar" ref={headerRef}>
       <div className="nav-brand">
-        <a href="#">
+        <Link to="/">
           <img src={skullLogo} alt="Skull Solution Brand Logo" className="brand-logo" />
-        </a>
+        </Link>
       </div>
 
       {/* Desktop Navigation Links */}
       <nav className={`nav-menu ${menuActive ? "active" : ""}`} id="navMenu">
         <ul className="nav-list">
           <li>
-            <a href="#about" className="nav-link" onClick={closeMenu}>
+            <Link to="/about" className="nav-link" onClick={closeMenu}>
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#work" className="nav-link" onClick={closeMenu}>
+            <Link to="/work" className="nav-link" onClick={closeMenu}>
               Work
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#services" className="nav-link" onClick={closeMenu}>
+            <Link to="/services" className="nav-link" onClick={closeMenu}>
               Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#testimonials" className="nav-link" onClick={closeMenu}>
-              Testimonials
-            </a>
+            <Link to="/blogs" className="nav-link" onClick={closeMenu}>
+              Blogs
+            </Link>
           </li>
           <li>
-            <a href="#contact" className="nav-link" onClick={closeMenu}>
+            <Link to="/contact" className="nav-link" onClick={closeMenu}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
 
       {/* Navbar Actions */}
       <div className="nav-actions">
-        <a href="#contact" className="btn btn-white btn-call">
+        <Link to="/appointment" className="btn btn-white btn-call">
           Call Us
-        </a>
+        </Link>
         <button
           className={`hamburger ${menuActive ? "active" : ""}`}
           id="hamburgerBtn"

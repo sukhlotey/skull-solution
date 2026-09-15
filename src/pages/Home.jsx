@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-
+import { Link } from "react-router-dom"
 // Import image assets
 import skullHero from "../assets/skull-hero.png"
 import brand1 from "../assets/brand1.png"
@@ -971,9 +971,9 @@ function Home() {
             <p className="faq-subtitle">
               Discover answers to common questions about Skull Solution's services and how we can assist you.
             </p>
-            <a href="#contact" className="btn btn-white faq-cta">
+            <Link to="/contact" className="btn btn-white faq-cta">
               Get in Touch
-            </a>
+            </Link>
           </div>
 
           {/* Right FAQ Accordion List */}

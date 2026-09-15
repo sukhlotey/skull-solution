@@ -1,0 +1,414 @@
+/* ==========================================
+   SERVICES PAGE STYLES
+   ========================================== */
+
+.services-page-section {
+  width: 100%;
+  padding: 20px 0 80px;
+}
+
+/* ------------------------------------------
+   SECTION 1: HERO
+   ------------------------------------------ */
+.services-hero-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 70px;
+  gap: 40px;
+}
+
+.services-hero-content {
+  max-width: 680px;
+}
+
+.services-subhead-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.services-hero-title {
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.services-hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.65));
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.services-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------
+   SECTION 2: CORE COMPETENCIES GRID
+   ------------------------------------------ */
+.competencies-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.competencies-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.competencies-count-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 90px;
+}
+
+.service-card-box {
+  background-color: #111215;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 290px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.service-card-box:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.service-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.service-card-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.service-card-tags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mini-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.service-card-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+  margin-top: 6px;
+}
+
+.service-card-heading {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.service-card-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.55;
+}
+
+.service-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-value-big {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-label-muted {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-top: 4px;
+}
+
+.service-arrow-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #08080a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.service-arrow-btn:hover {
+  transform: scale(1.1);
+  background-color: #eaeaea;
+}
+
+/* ------------------------------------------
+   SECTION 3: EXECUTION PIPELINE
+   ------------------------------------------ */
+.pipeline-section {
+  margin-bottom: 90px;
+}
+
+.pipeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 44px;
+}
+
+.pipeline-header-left {
+  max-width: 500px;
+}
+
+.pipeline-header-right {
+  max-width: 480px;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  padding-top: 10px;
+}
+
+.pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.pipeline-card {
+  background-color: #111215;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.pipeline-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.pipeline-number {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+  font-family: monospace;
+}
+
+.pipeline-card-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.pipeline-card-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+/* ------------------------------------------
+   SECTION 4: WORK TOGETHER WHITE CARD
+   ------------------------------------------ */
+.work-together-card {
+  background-color: #ffffff;
+  color: #08080a;
+  border-radius: 28px;
+  padding: 56px 48px;
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.together-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: #08080a;
+  letter-spacing: -0.02em;
+}
+
+.together-desc {
+  font-size: 1.02rem;
+  color: rgba(8, 8, 10, 0.75);
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+.together-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.btn-dark-solid {
+  background-color: #08080a;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 14px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-dark-solid:hover {
+  background-color: #222328;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.btn-dark-outline {
+  background-color: transparent;
+  color: #08080a;
+  border: 1px solid rgba(8, 8, 10, 0.3);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 14px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-dark-outline:hover {
+  border-color: #08080a;
+  background-color: rgba(8, 8, 10, 0.05);
+  transform: translateY(-2px);
+}
+
+
+/* ------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ------------------------------------------ */
+
+@media (max-width: 1199px) {
+  .competencies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pipeline-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .services-hero-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .pipeline-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .work-together-card {
+    padding: 36px 24px;
+  }
+}
+
+@media (max-width: 650px) {
+  .competencies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pipeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .together-btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-dark-solid,
+  .btn-dark-outline {
+    width: 100%;
+  }
+}
