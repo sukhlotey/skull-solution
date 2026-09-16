@@ -109,7 +109,7 @@ const Services = () => {
           <div className="services-subhead-tag">CAPABILITIES STATEMENT</div>
           <h1 className="services-hero-title">
             Precision Growth Systems for <br />
-            <span className="highlight-badge-pill">Modern Enterprises.</span>
+            <span className="highlight-badge-pill"> Enterprises.</span>
           </h1>
           <p className="services-hero-desc">
             No templates, no assumptions. We engineer data-driven digital
