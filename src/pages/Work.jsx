@@ -1,75 +1,68 @@
 import { useState } from "react";
-import brandPro from "../assets/brand-pro.jpg";
-import digiPro from "../assets/digi-pro.jpg";
-import skullHero from "../assets/skull-hero.png";
-import seoPro from "../assets/seo-pro.jpg";
-import uiPro from "../assets/ui-pro.jpg";
-import adPro from "../assets/ad-pro.jpg";
+import project1 from "../assets/project1.png";
+import project2 from "../assets/project2.png";
+import project3 from "../assets/project3.png";
+import project4 from "../assets/project4.png";
+import project5 from "../assets/project5.png";
+import project6 from "../assets/project6.png";
 import "./Work.css";
 
 const FILTER_TABS = [
   "ALL WORK",
-  "SEO SERVICES",
-  "SOCIAL MEDIA",
-  "BRAND STRATEGY",
-  "EMAIL MARKETING",
-  "CONTENT CREATION"
+  "UI/UX DESIGN",
+  "WEBSITE DESIGN",
+  "WORDPRESS",
+  "DIGITAL MARKETING"
 ];
 
-const CASE_STUDIES_DATA = [
+const PROJECTS_DATA = [
   {
     id: 1,
-    title: "Accelerating E-commerce Scale for High-End Retail",
-    desc: "We restructured their organic keyword footprint and modernized category UX, leading to a massive increase in organic transactions.",
-    badge: "+245% Revenue",
-    tags: ["BRAND STRATEGY", "SEO SERVICES"],
-    img: brandPro,
-    row: 1
+    num: "01.",
+    title: "FCSW Community Platform",
+    subtitle: "Empowering non-profit engagement through modern mobile UX and digital strategy",
+    tags: ["UI", "Website Design", "WordPress"],
+    img: project1
   },
   {
     id: 2,
-    title: "Hyper-Growth Launch Tactics for Fintech App",
-    desc: "A multi-channel digital launch built around community-focused social media strategies and segmented product loops.",
-    badge: "125K Signups",
-    tags: ["SOCIAL MEDIA", "EMAIL MARKETING"],
-    img: digiPro,
-    row: 1
+    num: "02.",
+    title: "Ocala Communications Portal",
+    subtitle: "Helping this communications recruitment agency scale candidate reach by 168%",
+    tags: ["Digital Marketing", "Website Design"],
+    img: project2
   },
   {
     id: 3,
-    title: "Redefining Search Presence and Authority for Enterprise SaaS Partners",
-    desc: "Crafting authoritative long-form content hubs coupled with technical backlink strategies. We helped them dominate competitive enterprise queries within six months, cutting customer acquisition cost significantly.",
-    badge: "3.2M Active Investors",
-    tags: ["SEO SERVICES", "CONTENT CREATION", "BRAND STRATEGY"],
-    img: skullHero,
-    row: 2
+    num: "03.",
+    title: "Print Scale Hub",
+    subtitle: "High-performance Webflow storefront built for seamless custom merchandise orders",
+    tags: ["Digital Marketing", "Website Design", "WordPress"],
+    img: project3
   },
   {
     id: 4,
-    title: "Lifecycle Retention Loops",
-    desc: "Automated flows tailored to user behaviors that minimized checkout drop-offs.",
-    badge: "+18% Open Rate",
-    tags: ["EMAIL MARKETING"],
-    img: seoPro,
-    row: 3
+    num: "04.",
+    title: "Boyd Commercial Real Estate",
+    subtitle: "Showcasing over $2B+ in completed commercial property transactions nationwide",
+    tags: ["UI", "Website Design", "WordPress"],
+    img: project4
   },
   {
     id: 5,
-    title: "Rebranding Wellness Studio",
-    desc: "Positioning a boutique health brand for global expansion through high-end digital styling.",
-    badge: "2X Store Sales",
-    tags: ["BRAND STRATEGY"],
-    img: adPro,
-    row: 3
+    num: "05.",
+    title: "Florida Bamboo Farming",
+    subtitle: "Building organic search authority and direct inquiry leads for sustainable agriculture",
+    tags: ["UI", "Website Design", "WordPress"],
+    img: project5
   },
   {
     id: 6,
-    title: "UGC Content Engine",
-    desc: "Structuring scaled-video production systems to power TikTok and Reel advertisements.",
-    badge: "15M+ Views",
-    tags: ["CONTENT CREATION"],
-    img: uiPro,
-    row: 3
+    num: "06.",
+    title: "Poker Room Mobile Experience",
+    subtitle: "Engaging gaming portal with high-converting mobile UI and player retention flows",
+    tags: ["UI", "Website Design", "WordPress"],
+    img: project6
   }
 ];
 
@@ -77,18 +70,14 @@ const Work = () => {
   const [activeFilter, setActiveFilter] = useState("ALL WORK");
 
   // Filter project items based on active tab
-  const filteredProjects = CASE_STUDIES_DATA.filter((item) => {
+  const filteredProjects = PROJECTS_DATA.filter((item) => {
     if (activeFilter === "ALL WORK") return true;
-    return item.tags.includes(activeFilter);
+    return item.tags.some(tag => tag.toUpperCase() === activeFilter || (activeFilter === "UI/UX DESIGN" && tag === "UI"));
   });
-
-  const row1Items = filteredProjects.filter((item) => item.row === 1);
-  const row2Items = filteredProjects.filter((item) => item.row === 2);
-  const row3Items = filteredProjects.filter((item) => item.row === 3);
 
   return (
     <div className="work-page-section">
-      {/* SECTION 1: HERO HEADER */}
+      {/* HERO HEADER */}
       <div className="work-header-block">
         <h1 className="work-hero-title">
           OUR CREATIVE <br />
@@ -117,109 +106,31 @@ const Work = () => {
         </div>
       </div>
 
-      {/* SECTION 2: CASE STUDIES GRID */}
-      {/* ROW 1: 2 CARDS */}
-      {row1Items.length > 0 && (
-        <div className="work-grid-row1">
-          {row1Items.map((item) => (
-            <div key={item.id} className="work-card">
-              <div className="work-card-media-box">
-                <img src={item.img} alt={item.title} className="work-card-img" />
-                <span className="work-stat-badge">{item.badge}</span>
-              </div>
-              <div className="work-card-body">
-                <div>
-                  <div className="work-card-tags" style={{ marginBottom: "10px" }}>
-                    {item.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="work-mini-tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="work-card-title">{item.title}</h3>
-                  <p className="work-card-desc" style={{ marginTop: "8px" }}>
-                    {item.desc}
-                  </p>
-                </div>
-                <a href="/service-detail" className="work-card-link">
-                  <span>Read Case Study</span>
-                  <i className="fa-solid fa-chevron-right" style={{ fontSize: "0.75rem" }}></i>
-                </a>
+      {/* 2-COLUMN PROJECTS GRID (MATCHING DESIGN) */}
+      <div className="work-projects-grid">
+        {filteredProjects.map((project) => (
+          <div key={project.id} className="work-project-card">
+            <div className="work-project-media">
+              <img src={project.img} alt={project.title} className="work-project-img" />
+            </div>
+            <div className="work-project-info">
+              <h3 className="work-project-title">
+                <span className="work-project-num">{project.num}</span> {project.title} <span className="work-project-dash">—</span>
+              </h3>
+              <p className="work-project-subtitle">{project.subtitle}</p>
+              <div className="work-project-tags">
+                {project.tags.map((tag, idx) => (
+                  <span key={idx} className="work-project-tag">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </div>
 
-      {/* ROW 2: FULL WIDTH CARD */}
-      {row2Items.length > 0 && (
-        <div className="work-grid-row2">
-          {row2Items.map((item) => (
-            <div key={item.id} className="work-card">
-              <div className="work-card-media-box full-height">
-                <img src={item.img} alt={item.title} className="work-card-img" />
-                <span className="work-stat-badge">{item.badge}</span>
-              </div>
-              <div className="work-card-body">
-                <div>
-                  <div className="work-card-tags" style={{ marginBottom: "10px" }}>
-                    {item.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="work-mini-tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="work-card-title" style={{ fontSize: "1.5rem" }}>
-                    {item.title}
-                  </h3>
-                  <p className="work-card-desc" style={{ marginTop: "8px" }}>
-                    {item.desc}
-                  </p>
-                </div>
-                <a href="/service-detail" className="work-card-link">
-                  <span>Read Case Study</span>
-                  <i className="fa-solid fa-chevron-right" style={{ fontSize: "0.75rem" }}></i>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* ROW 3: 3 CARDS */}
-      {row3Items.length > 0 && (
-        <div className="work-grid-row3">
-          {row3Items.map((item) => (
-            <div key={item.id} className="work-card">
-              <div className="work-card-media-box">
-                <img src={item.img} alt={item.title} className="work-card-img" />
-                <span className="work-stat-badge">{item.badge}</span>
-              </div>
-              <div className="work-card-body">
-                <div>
-                  <div className="work-card-tags" style={{ marginBottom: "10px" }}>
-                    {item.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="work-mini-tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="work-card-title">{item.title}</h3>
-                  <p className="work-card-desc" style={{ marginTop: "8px" }}>
-                    {item.desc}
-                  </p>
-                </div>
-                <a href="/service-detail" className="work-card-link">
-                  <span>Read Case Study</span>
-                  <i className="fa-solid fa-chevron-right" style={{ fontSize: "0.75rem" }}></i>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* SECTION 3: RESULTS BAR & CTA */}
+      {/* RESULTS BAR & CTA */}
       <div className="results-section">
         <div className="results-top-row">
           <div>

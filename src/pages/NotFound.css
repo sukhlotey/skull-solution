@@ -21,13 +21,14 @@
   gap: 20px;
 }
 
-/* CENTERED ANIMATED 404 TEXT */
+/* CENTERED ANIMATED 404 TEXRedefiningT */
 .notfound-number {
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 900;
   line-height: 0.9;
   letter-spacing: -6px;
   background: linear-gradient(135deg, #ffffff 0%, #a0a0a5 50%, #444444 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;

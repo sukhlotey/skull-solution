@@ -78,7 +78,7 @@ const Contact = () => {
   return (
     <div className="contact-page-section">
       {/* PAGE HEADER */}
-      <div className="contact-header-block">
+      <div className="contact-header-block" data-animate="fadeInUp">
         <h1 className="contact-page-title">
           LET'S START A <br />
           NEW <span className="highlight-badge-pill">JOURNEY.</span>
@@ -95,7 +95,7 @@ const Contact = () => {
         {/* LEFT COLUMN: 4 CONTACT INFO CARDS */}
         <div className="contact-left-cards">
           {/* Card 1: Email */}
-          <div className="contact-info-card">
+          <div className="contact-info-card" data-animate="fadeInUp">
             <div className="info-card-icon">
               <i className="fa-regular fa-envelope"></i>
             </div>
@@ -110,7 +110,7 @@ const Contact = () => {
           </div>
 
           {/* Card 2: Phone */}
-          <div className="contact-info-card">
+          <div className="contact-info-card" data-animate="fadeInUp">
             <div className="info-card-icon">
               <i className="fa-solid fa-phone"></i>
             </div>
@@ -122,7 +122,7 @@ const Contact = () => {
           </div>
 
           {/* Card 3: Location */}
-          <div className="contact-info-card">
+          <div className="contact-info-card" data-animate="fadeInUp">
             <div className="info-card-icon">
               <i className="fa-solid fa-location-dot"></i>
             </div>
@@ -139,7 +139,7 @@ const Contact = () => {
           </div>
 
           {/* Card 4: Social Media */}
-          <div className="contact-info-card">
+          <div className="contact-info-card" data-animate="fadeInUp">
             <span className="info-card-label">
               CONNECT WITH US ON SOCIAL MEDIA
             </span>
@@ -177,7 +177,7 @@ const Contact = () => {
         </div>
 
         {/* RIGHT COLUMN: PROPOSAL FORM CARD */}
-        <div className="contact-form-card">
+        <div className="contact-form-card" data-animate="fadeInUp">
           <h2 className="contact-form-title">Send a Message</h2>
           <p className="contact-form-subtitle">
             Tell us about your digital goals, and we'll assemble the perfect
@@ -286,54 +286,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* HOME.JSX FAQ SECTION INTEGRATION */}
-      <section className="faq-section" id="faq" style={{ marginTop: "60px" }}>
-        <div className="faq-grid">
-          {/* Left FAQ Info */}
-          <div className="faq-info-col">
-            <h2 className="faq-title">FAQs</h2>
-            <p className="faq-subtitle">
-              Discover answers to common questions about Skull Solution's
-              services and how we can assist you.
-            </p>
-            <a href="#top" className="btn btn-white faq-cta">
-              Get in Touch
-            </a>
-          </div>
-
-          {/* Right FAQ Accordion List */}
-          <div className="faq-accordion-col">
-            <div className="faq-accordion">
-              {FAQ_ITEMS.map((item, index) => {
-                const isOpen = activeFaqIndex === index;
-                return (
-                  <div
-                    key={index}
-                    className={`faq-item ${isOpen ? "active" : ""}`}
-                  >
-                    <div
-                      className="faq-question"
-                      onClick={() => toggleFaq(index)}
-                    >
-                      <h3>{item.question}</h3>
-                      <span className="faq-toggle-icon">
-                        {isOpen ? (
-                          <i className="fa-solid fa-minus"></i>
-                        ) : (
-                          <i className="fa-solid fa-plus"></i>
-                        )}
-                      </span>
-                    </div>
-                    <div className="faq-answer">
-                      <p>{item.answer}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+  
     </div>
   );
 };

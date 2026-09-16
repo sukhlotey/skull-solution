@@ -488,16 +488,21 @@
   }
 
   .stats-bar-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+    padding: 28px 16px;
   }
 
   .stat-item-box {
+    border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     padding-bottom: 16px;
   }
 
-  .stat-item-box:last-child {
+  .stat-item-box:nth-child(3),
+  .stat-item-box:nth-child(4) {
     border-bottom: none;
+    padding-bottom: 0;
   }
 
   .about-hero-title {
@@ -507,11 +512,14 @@
   .btn-pill-solid,
   .btn-pill-outline {
     padding: 12px 20px;
-    font-size: 0.85rem;
+    font-size: 15px;
   }
 
   .about-cta-card {
     padding: 24px 18px;
     border-radius: 18px;
   }
+  .about-page-section {
+  padding-bottom: 0px;
+}
 }

@@ -69,7 +69,7 @@ function Navbar() {
 
       {/* Navbar Actions */}
       <div className="nav-actions">
-        <Link to="/appointment" className="btn btn-white btn-call">
+        <Link to="/contact" className="btn btn-white btn-call">
           Call Us
         </Link>
         <button

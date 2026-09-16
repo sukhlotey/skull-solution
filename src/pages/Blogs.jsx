@@ -36,7 +36,7 @@ const Blogs = () => {
   return (
     <div className="blogs-page-section">
       {/* SECTION 1: HERO HEADER */}
-      <div className="blogs-header-block">
+      <div className="blogs-header-block" data-animate="fadeInUp">
         <h1 className="blogs-hero-title">
           INSIGHTS FROM <br />
           <span className="highlight-badge-pill">OUR EXPERTS</span>
@@ -49,9 +49,9 @@ const Blogs = () => {
       </div>
 
       {/* SECTION 2: FEATURED ARTICLE */}
-      <div className="blogs-section-label">FEATURED ARTICLE</div>
+      <div className="blogs-section-label" data-animate="fadeInUp">FEATURED ARTICLE</div>
 
-      <Link to="/blog-detail" className="featured-article-card">
+      <Link to="/blog-detail" className="featured-article-card" data-animate="fadeInUp">
         <div className="featured-img-box">
           <img
             src={blogImg}
@@ -84,11 +84,11 @@ const Blogs = () => {
       </Link>
 
       {/* SECTION 3: ALL PUBLICATIONS GRID */}
-      <div className="blogs-section-label">ALL PUBLICATIONS</div>
+      <div className="blogs-section-label" data-animate="fadeInUp">ALL PUBLICATIONS</div>
 
       <div className="publications-grid">
         {PUBLICATIONS_DATA.map((pub) => (
-          <Link key={pub.id} to="/blog-detail" className="publication-card">
+          <Link key={pub.id} to="/blog-detail" className="publication-card" data-animate="fadeInUp">
             <div className="pub-img-box">
               <img src={pub.img} alt={pub.title} className="pub-img" />
             </div>

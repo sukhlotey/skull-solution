@@ -1,8 +1,8 @@
 import { useState } from "react";
 import uiPro from "../assets/ui-pro.jpg";
 import devPro from "../assets/dev-pro.jpg";
-import brandPro from "../assets/brand-pro.jpg";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import BookServiceModal from "../components/BookServiceModal";
 import "./ServiceDetail.css";
 
 const SPECIALIZATIONS_DATA = [
@@ -229,6 +229,8 @@ const FAQ_ITEMS = [
 const ServiceDetail = () => {
   // FAQ Accordion state
   const [activeFaqIndex, setActiveFaqIndex] = useState(0);
+  // Book a Service Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleFaq = (index) => {
     setActiveFaqIndex((prev) => (prev === index ? null : index));
@@ -364,41 +366,6 @@ const ServiceDetail = () => {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* SECTION 5: DESIGNED AROUND YOUR BRAND */}
-      <div className="sd-brand-section">
-        <div className="sd-brand-content">
-          <div className="sd-badge-tag">NO TEMPLATES</div>
-          <h2 className="sd-section-title" style={{ textAlign: "left" }}>
-            Designed Around Your Brand
-          </h2>
-          <p className="sd-hero-desc">
-            We don't believe every business should have the same-looking website.
-            Before designing, we understand your core dynamics:
-          </p>
-          <div className="sd-brand-pills">
-            <span className="sd-brand-pill">Brand</span>
-            <span className="sd-brand-pill">Audience</span>
-            <span className="sd-brand-pill">Services</span>
-            <span className="sd-brand-pill">Competitors</span>
-            <span className="sd-brand-pill">Goals</span>
-            <span className="sd-brand-pill">Industry</span>
-          </div>
-          <p className="sd-hero-desc">
-            We then develop a visual direction using suitable typography, layouts,
-            imagery, brand colors, and messaging to create a website that feels
-            genuinely connected to your business.
-          </p>
-        </div>
-
-        <div className="sd-hero-media-box">
-          <img
-            src={brandPro}
-            alt="Designed Around Your Brand"
-            className="sd-hero-img"
-          />
         </div>
       </div>
 
@@ -549,14 +516,21 @@ const ServiceDetail = () => {
           </p>
         </div>
         <div className="sd-btn-group">
-          <Link to="/servicebook" className="btn-pill-solid">
+          <button onClick={() => setIsModalOpen(true)} className="btn-pill-solid" style={{ cursor: "pointer", border: "none" }}>
             Get Started Now
-          </Link>
+          </button>
           <Link to="/contact" className="btn-pill-outline">
             Contact Us
           </Link>
         </div>
       </div>
+
+      {/* BOOK A SERVICE MODAL */}
+      <BookServiceModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        initialService="Web Designing"
+      />
     </div>
   );
 };

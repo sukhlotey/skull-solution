@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="about-page-section">
       {/* SECTION 1: HERO SECTION */}
-      <div className="about-hero-grid">
+      <div className="about-hero-grid" data-animate="fadeInUp">
         <div className="about-hero-left">
           <div className="about-subhead-tag">WHO WE ARE</div>
           <h1 className="about-hero-title">
@@ -41,7 +41,7 @@ const About = () => {
       </div>
 
       {/* SECTION 2: STATS COUNTER BAR */}
-      <div className="stats-bar-container">
+      <div className="stats-bar-container" data-animate="fadeInUp">
         <div className="stat-item-box">
           <span className="stat-big-number">250+</span>
           <span className="stat-item-label">CAMPAIGNS LAUNCHED</span>
@@ -61,7 +61,7 @@ const About = () => {
       </div>
 
       {/* SECTION 3: OUR CORE PHILOSOPHY (VALUES) */}
-      <div className="philosophy-section" id="philosophy">
+      <div className="philosophy-section" id="philosophy" data-animate="fadeInUp">
         <div className="philosophy-header">
           <div className="about-subhead-tag">OUR CORE PHILOSOPHY</div>
           <h2 className="about-hero-title" style={{ fontSize: "clamp(2rem, 3.5vw, 3.2rem)" }}>
@@ -140,7 +140,7 @@ const About = () => {
       </div>
 
       {/* SECTION 4: MISSION & VISION */}
-      <div className="mission-vision-section">
+      <div className="mission-vision-section" data-animate="fadeInUp">
         <div className="mv-top-grid">
           <div>
             <div className="about-subhead-tag">MISSION & VISION</div>
@@ -253,7 +253,7 @@ const About = () => {
       </div>
 
       {/* SECTION 5: BOTTOM CTA BANNER */}
-      <div className="about-cta-card">
+      <div className="about-cta-card" data-animate="fadeInUp">
         <div className="cta-left-content">
           <h2 className="cta-main-heading">
             Ready to experience the Noira difference?

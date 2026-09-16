@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ProcessWheelSection from "../components/ProcessWheelSection.jsx";
 import "./Services.css";
 
 const COMPETENCIES_DATA = [
@@ -103,7 +104,7 @@ const Services = () => {
   return (
     <div className="services-page-section">
       {/* SECTION 1: HERO */}
-      <div className="services-hero-block">
+      <div className="services-hero-block" data-animate="fadeInUp">
         <div className="services-hero-content">
           <div className="services-subhead-tag">CAPABILITIES STATEMENT</div>
           <h1 className="services-hero-title">
@@ -177,6 +178,9 @@ const Services = () => {
           </div>
         ))}
       </div>
+
+      {/* SECTION 2.5: OUR PROCESS WHEEL */}
+      <ProcessWheelSection />
 
       {/* SECTION 3: EXECUTION PIPELINE */}
       <div className="pipeline-section">
