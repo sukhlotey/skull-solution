@@ -16,7 +16,7 @@ const About = () => {
           </h1>
 
           <p className="about-hero-description">
-            Noira is a team of hyper-focused digital marketing specialists,
+            Skull Solution is a team of hyper-focused digital marketing specialists,
             engineers, and creators. We replace traditional guesswork with
             robust, scientific campaign scaling.
           </p>
@@ -256,7 +256,7 @@ const About = () => {
       <div className="about-cta-card" data-animate="fadeInUp">
         <div className="cta-left-content">
           <h2 className="cta-main-heading">
-            Ready to experience the Noira difference?
+            Ready to experience the Skull Solution difference?
           </h2>
           <p className="cta-sub-text">
             Schedule a direct architecture session with our performance leads to

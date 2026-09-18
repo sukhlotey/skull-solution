@@ -100,9 +100,9 @@ const Contact = () => {
               <i className="fa-regular fa-envelope"></i>
             </div>
             <span className="info-card-label">EMAIL US</span>
-            <span className="info-card-value">hello@noiraagency.com</span>
+            <span className="info-card-value">hello@skullsolution.com</span>
             <a
-              href="mailto:hello@noiraagency.com"
+              href="mailto:hello@skullsolution.com"
               className="info-card-link"
             >
               Send an email <span className="info-card-link-arrow">↗</span>
@@ -274,7 +274,7 @@ const Contact = () => {
             </div>
 
             <button type="submit" className="submit-proposal-btn">
-              Submit Proposal Request
+              Submit 
             </button>
           </form>
 

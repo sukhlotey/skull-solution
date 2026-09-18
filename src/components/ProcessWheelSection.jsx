@@ -3,7 +3,7 @@ import skullCenter from "../assets/skull.png"
 const ProcessWheelSection = () => {
   return (
     <section className="process-wheel-section" id="process-wheel">
-      <div className="process-wheel-card" data-animate="fadeInUp">
+      <div className="process-wheel-card" data-animate="fadeInUp" data-repeat-animate="true">
         <div className="process-wheel-header">
           <h2 className="process-wheel-title">
             <span className="highlight-badge-white">OUR PROCESS</span> 6 STEPS TO SUCCESS

@@ -1847,27 +1847,35 @@ body {
 
 /* IntersectionObserver Scroll-Trigger Entrance Animations - Staggered Fly In With Entrance Delay */
 .process-wheel-card[data-animated="true"] .node-top {
-    animation: flyInTop 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+    animation: flyInTop 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards, counterOrbit 40s linear 2s infinite;
 }
 
 .process-wheel-card[data-animated="true"] .node-top-right {
-    animation: flyInTopRight 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+    animation: flyInTopRight 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards, counterOrbit 40s linear 2s infinite;
 }
 
 .process-wheel-card[data-animated="true"] .node-bottom-right {
-    animation: flyInBottomRight 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+    animation: flyInBottomRight 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards, counterOrbit 40s linear 2s infinite;
 }
 
 .process-wheel-card[data-animated="true"] .node-bottom {
-    animation: flyInBottom 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards;
+    animation: flyInBottom 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards, counterOrbit 40s linear 2s infinite;
 }
 
 .process-wheel-card[data-animated="true"] .node-bottom-left {
-    animation: flyInBottomLeft 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards;
+    animation: flyInBottomLeft 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards, counterOrbit 40s linear 2s infinite;
 }
 
 .process-wheel-card[data-animated="true"] .node-top-left {
-    animation: flyInTopLeft 0.85s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
+    animation: flyInTopLeft 0.85s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards, counterOrbit 40s linear 2s infinite;
+}
+
+.process-wheel-card[data-animated="true"] .process-wheel-container {
+    animation: orbitWheel 40s linear 2s infinite;
+}
+
+.process-wheel-card[data-animated="true"] .center-core-logo {
+    animation: counterOrbit 40s linear 2s infinite;
 }
 
 @keyframes flyInTop {
@@ -3642,13 +3650,17 @@ body {
     .services-title,
     .process-wheel-title,
     .workflow-title,
-    .faq-title {
+    .faq-title,
+    .blogs-hero-title {
         font-size: 60px;
     }
 
-    .card-heading {
+    .card-heading,
+    .about-hero-description,
+    .services-hero-desc,
+    .blogs-hero-desc {
         font-size: 24px;
-
+        max-width: 700px;
     }
 
     .stat-caption {
@@ -3698,13 +3710,18 @@ body {
         font-size: 22px;
     }
 
-    .workflow-subtitle {
+    .workflow-subtitle,
+    .work-hero-desc {
         font-size: 22px;
         max-width: 780px;
     }
 
-    .btn-dark-solid {
-        font-size: 28px;
+    .btn-dark-solid,
+    .btn-pill-solid,
+    .btn-pill-outline,
+    .btn-dark-outline {
+        font-size: 24px;
+        font-family: var(--font-body);
     }
 
     .together-desc,
@@ -3741,4 +3758,177 @@ body {
         width: 54px;
         height: 54px;
     }
+
+    .stat-big-number {
+        font-size: 60px;
+    }
+
+    .stat-item-label {
+        font-size: 16px;
+    }
+
+    .about-hero-title,
+    .work-hero-title,
+    .results-title,
+    .services-hero-title {
+        font-size: 60px !important;
+        max-width: 1100px;
+    }
+
+    .value-card-title {
+        font-size: 22px;
+    }
+
+    .value-card-desc {
+        font-size: 16px;
+    }
+
+    .mv-cards-grid {
+
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .mv-card-text {
+        font-size: 16px;
+    }
+
+    .mv-banner-tag {
+        font-size: 18px;
+    }
+
+    .mv-banner-text {
+        font-size: 16px;
+    }
+
+    .cta-sub-text {
+        font-size: 18px;
+    }
+
+    .work-filter-btn {
+        font-size: 14px;
+    }
+
+    .work-project-title {
+        font-size: 22px;
+    }
+
+    .work-project-subtitle,
+    .results-desc {
+        font-size: 18px;
+    }
+
+    .work-project-tag {
+        font-size: 14px;
+    }
+
+    .result-label,
+    .service-card-desc {
+        font-size: 18px;
+    }
+
+    .service-card-heading {
+        font-size: 22px;
+    }
+
+    .stat-label-muted {
+        font-size: 16px;
+    }
+
+    .stat-value-big {
+        font-size: 28px;
+    }
+
+    .process-wheel-subtitle, .pipeline-header-right {
+        font-size: 18px;
+    }
+
+    .point-text h4, .pipeline-card-title {
+        font-size: 20px;
+    }
+    .node-title{
+        font-size: 14px;
+    }
+    .pipeline-card-desc, .read-article-link{
+        font-size: 16px;
+    }
+    .blogs-section-label{
+        font-size: 14px;
+    }
+    .featured-excerpt{
+        font-size: 18px;
+    }
+    .pub-title{
+        font-size: 20px;
+    }
+    .pub-excerpt{
+        font-size: 16px;
+    }
+    .publications-grid{
+        max-width: 1450px;
+        margin: 0 auto;
+    }
+    .policy-submit-btn{
+        font-size: 22px;
+        font-family: var(--font-body);
+    }
+    .sd-hero-title{
+        font-size: 60px;
+    }
+    .sd-hero-desc{
+        font-size: 22px;
+    }
+    .sd-hero-subnote{
+        font-size: 18px;
+    }
+    .sd-section-title{
+        line-height: 1.2;
+    }
+    .sd-section-subtitle{
+        font-size: 16px;
+    }
+    .sd-card-title{
+        font-size: 22px;
+    }
+    .sd-card-desc{
+        font-size: 16px;
+    }
+    .sd-pill-tag{
+        font-size: 12px;
+    }
+    .bd-related-card-title{
+        font-size: 20px;
+    }
+    .bd-related-card-desc{
+        font-size: 16px;
+    }
+       .testimonial-card-wrapper {
+        padding: 60px 10% !important;
+    }
+
+    .contact-form-title{
+        font-size: 26px;
+    }
+    .contact-form-subtitle{
+        font-size: 16px;
+    }
 }
+
+@keyframes orbitWheel {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counterOrbit {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
