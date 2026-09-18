@@ -224,7 +224,7 @@ const Appointment = () => {
 
           <div className="testimonial-card">
             <p className="testimonial-quote">
-              "Noira transformed our online presence, making it easier for us
+              "Skull Solution transformed our online presence, making it easier for us
               to attract high-value clients and showcase our work
               effectively."
             </p>

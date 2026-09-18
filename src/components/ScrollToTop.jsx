@@ -33,7 +33,14 @@ const ScrollToTop = () => {
             const animType = el.getAttribute("data-animate") || "fadeInUp";
             el.setAttribute("data-animated", "true");
             el.classList.add("animate__animated", `animate__${animType}`, "animated-show");
-            observer.unobserve(el);
+            if (el.getAttribute("data-repeat-animate") !== "true") {
+              observer.unobserve(el);
+            }
+          } else {
+            const el = entry.target;
+            if (el.getAttribute("data-repeat-animate") === "true") {
+              el.setAttribute("data-animated", "false");
+            }
           }
         });
       }, observerOptions);

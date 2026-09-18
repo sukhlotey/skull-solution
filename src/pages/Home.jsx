@@ -18,11 +18,15 @@ import adPro from "../assets/ad-pro.jpg"
 import uiPro from "../assets/ui-pro.jpg"
 import brandPro from "../assets/brand-pro.jpg"
 
-import review1 from "../assets/review1.jpg"
-import review2 from "../assets/review2.avif"
-import review3 from "../assets/review3.jpg"
+import review1 from "../assets/avatar1.avif"
+import review2 from "../assets/avatar2.avif"
+import review3 from "../assets/avatar3.jpg"
+import review4 from "../assets/avatar4.avif"
+import review5 from "../assets/avatar5.avif"
+import review6 from "../assets/avatar6.jpg"
 import ProcessWheelSection from "../components/ProcessWheelSection.jsx"
 import BookServiceModal from "../components/BookServiceModal.jsx"
+import PricingCTA from "../components/PricingCTA.jsx"
 
 // Services List Data
 const servicesData = [
@@ -32,7 +36,8 @@ const servicesData = [
     title: "Digital Marketing",
     badge: "Full-Stack Growth",
     desc: "Strategic digital marketing campaigns designed to increase visibility, attract the right audience, and drive measurable business growth.",
-    features: ["Google & Meta Ads", "Lead Generation", "Content Strategy", "Performance Marketing"]
+    features: ["Google & Meta Ads", "Lead Generation", "Content Strategy"],
+    images: [digiPro, adPro]
   },
   {
     index: "02",
@@ -40,7 +45,8 @@ const servicesData = [
     title: "Web Designing",
     badge: "Creative Experience",
     desc: "Modern and engaging website designs crafted to create strong first impressions and deliver smooth, user-focused digital experiences.",
-    features: ["UI/UX Design", "Figma Design", "Responsive Design", "Creative Layouts"]
+    features: ["UI/UX Design", "Figma Design", "Responsive Design", "Creative Layouts"],
+    images: [uiPro, brandPro]
   },
   {
     index: "03",
@@ -48,7 +54,8 @@ const servicesData = [
     title: "Web Development",
     badge: "Digital Solutions",
     desc: "Fast, responsive, and scalable websites built with modern technologies to deliver reliable performance and seamless functionality.",
-    features: ["Custom Development", "Responsive Websites", "Performance", "Modern Technologies"]
+    features: ["Custom Development", "Performance", "Modern Technologies"],
+    images: [devPro, uiPro]
   },
   {
     index: "04",
@@ -56,7 +63,8 @@ const servicesData = [
     title: "SEO Services",
     badge: "Organic Growth",
     desc: "Comprehensive SEO strategies focused on improving search visibility, attracting quality traffic, and building sustainable organic growth.",
-    features: ["Technical SEO", "On-Page SEO", "Keyword Strategy", "Search Rankings"]
+    features: ["Technical SEO", "On-Page SEO", "Keyword Strategy", "Search Rankings"],
+    images: [seoPro, digiPro]
   },
   {
     index: "05",
@@ -64,7 +72,8 @@ const servicesData = [
     title: "Ad Services",
     badge: "Targeted Reach",
     desc: "High-performance advertising campaigns designed to reach the right audience, generate quality leads, and maximize your advertising results.",
-    features: ["Google Ads", "Meta Ads", "PPC Campaigns", "Retargeting"]
+    features: ["Google Ads", "Meta Ads", "PPC Campaigns", "Retargeting"],
+    images: [adPro, seoPro]
   },
   {
     index: "06",
@@ -72,7 +81,8 @@ const servicesData = [
     title: "Brand Strategy",
     badge: "Market Leadership",
     desc: "Strategic brand positioning, visual identity, and messaging designed to make your business memorable and stand out in a competitive market.",
-    features: ["Brand Positioning", "Visual Identity", "Brand Messaging", "Market Strategy"]
+    features: ["Brand Positioning", "Visual Identity", "Brand Messaging"],
+    images: [brandPro, digiPro]
   }
 ]
 
@@ -125,16 +135,34 @@ const testimonialsData = [
     role: "CEO, Marketing Co."
   },
   {
-    img: review3,
+    img: review2,
     quote: `"Their data-driven SEO and PPC strategy doubled our leads in less than 90 days. The ROI has been phenomenal."`,
-    name: "Marcus Vance",
-    role: "Head of Growth, FinTech Solutions"
+    name: "Shilpa Kapoor",
+    role: "Marketing Manager, IT Solutions"
   },
   {
-    img: review2,
+    img: review3,
     quote: `"The UI/UX design and brand strategy completely elevated our product launch. Our conversion rates jumped by 145%."`,
     name: "Sophia Chen",
     role: "Founder & CPO, Nova Health"
+  },
+  {
+    img: review4,
+    quote: `"Their team’s technical expertise in web development allowed us to scale our platform effortlessly during peak traffic."`,
+    name: "David Smith",
+    role: "CTO, E-commerce Plus"
+  },
+  {
+    img: review5,
+    quote: `"Working with Skull Solution has been incredible. Their creative vision brought our brand to life in ways we couldn't imagine."`,
+    name: "Jessica Alba",
+    role: "Marketing Director, Creative Studio"
+  },
+  {
+    img: review6,
+    quote: `"Absolutely stunning design work. The attention to detail and user-focused approach resulted in a beautiful and highly functional site."`,
+    name: "Michael Chang",
+    role: "Product Manager, TechFlow"
   }
 ]
 
@@ -197,7 +225,14 @@ function Home() {
           const animType = el.getAttribute("data-animate") || "fadeInUp"
           el.setAttribute("data-animated", "true")
           el.classList.add("animate__animated", `animate__${animType}`, "animated-show")
-          observer.unobserve(el)
+          if (el.getAttribute("data-repeat-animate") !== "true") {
+            observer.unobserve(el)
+          }
+        } else {
+          const el = entry.target
+          if (el.getAttribute("data-repeat-animate") === "true") {
+            el.setAttribute("data-animated", "false")
+          }
         }
       })
     }, observerOptions)
@@ -662,6 +697,20 @@ function Home() {
               </h2>
             </div>
 
+            {/* Dynamic Service Images */}
+            {activeService.images && (
+              <div className="services-dynamic-images" data-animate="fadeInUp" style={{ display: 'flex', gap: '16px', marginBottom: '32px', width: '100%' }}>
+                {activeService.images.map((img, idx) => (
+                  <img 
+                    key={idx} 
+                    src={img} 
+                    alt={`${activeService.title} preview ${idx + 1}`} 
+                    style={{ width: 'calc(50% - 8px)', height: '160px', objectFit: 'cover', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.1)', boxShadow: '0 10px 30px rgba(0,0,0,0.4)', transition: 'opacity 0.4s ease' }} 
+                  />
+                ))}
+              </div>
+            )}
+
             {/* Dynamic Service Preview Panel */}
             <div className="service-preview-panel" id="servicePreviewPanel" data-animate="fadeInUp">
               <div className="preview-header">
@@ -721,59 +770,141 @@ function Home() {
 
       {/* Client Testimonials Slider Section */}
       <section className="testimonials-section" id="testimonials">
-        <div className="testimonial-card-wrapper" data-animate="fadeInUp">
-          <div className="testimonial-slider" id="testimonialSlider">
-            {testimonialsData.map((item, idx) => (
-              <div
-                key={idx}
-                className={`testimonial-slide ${idx === testimonialIndex ? "active" : ""}`}
-              >
-                <div className="testimonial-grid">
-                  <div className="testimonial-media">
-                    <img src={item.img} alt={`${item.name} Testimonial`} className="testimonial-img" />
-                  </div>
-                  <div className="testimonial-content">
-                    <blockquote className="testimonial-quote">{item.quote}</blockquote>
-                    <div className="client-badge">
-                      <h4 className="client-name">{item.name}</h4>
-                      <p className="client-role">{item.role}</p>
+        <style>
+          {`
+            @media (max-width: 768px) {
+              .testimonial-stacked-card {
+                padding: 30px 20px !important;
+                min-height: 220px !important;
+                gap: 25px !important;
+              }
+              .testimonial-stacked-card blockquote {
+                font-size: 1.1rem !important;
+                line-height: 1.5 !important;
+              }
+              .testimonial-stacked-card h4 {
+                font-size: 1rem !important;
+              }
+              .testimonial-stacked-card p {
+                font-size: 0.85rem !important;
+              }
+              .slider-btn {
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 1.1rem !important;
+              }
+              .slider-btn.prev-btn {
+                left: 0% !important;
+              }
+              .slider-btn.next-btn {
+                right: 0% !important;
+              }
+              .testimonial-slider-stack {
+                height: 320px !important;
+                width: 85% !important;
+              }
+            }
+            @media (max-width: 480px) {
+              .testimonial-stacked-card blockquote {
+                font-size: 0.95rem !important;
+              }
+              .slider-btn {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 1rem !important;
+              }
+            }
+          `}
+        </style>
+        <div className="testimonial-card-wrapper" data-animate="fadeInUp" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 0', position: 'relative', overflow: 'hidden', maxWidth: '1300px', margin: '0 auto' }}>
+          
+          <button
+            className="slider-btn prev-btn"
+            onClick={prevTestimonial}
+            style={{ zIndex: 10, position: 'absolute', left: '10%', background: '#fff', border: '1px solid #eaeaea', borderRadius: '50%', width: '60px', height: '60px', color: '#000', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
+          >
+            <i className="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div className="testimonial-slider-stack" style={{ position: 'relative', width: '90%', maxWidth: '900px', height: '400px', perspective: '1200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {testimonialsData.map((item, idx) => {
+              const total = testimonialsData.length;
+              let rel = (idx - testimonialIndex) % total;
+              if (rel < 0) rel += total;
+              
+              let zIndex = 5 - rel;
+              let scale = 1 - (rel * 0.04);
+              let translateY = rel * 20;
+              let translateX = 0;
+              let opacity = 1 - (rel * 0.3);
+              
+              if (rel > 2 && rel !== total - 1) {
+                opacity = 0;
+                scale = 0.8;
+                translateY = 60;
+                translateX = 0;
+              }
+              
+              // The card that just left goes from the top
+              if (rel === total - 1) {
+                zIndex = 6;
+                scale = 1.05;
+                translateY = -80; // fly out from top
+                translateX = 0;
+                opacity = 0;
+              }
+
+              return (
+                <div
+                  key={idx}
+                  className="testimonial-stacked-card"
+                  style={{
+                    position: 'absolute',
+                    top: 'auto',
+                    left: 0,
+                    right: 0,
+                    margin: '0 auto',
+                    width: '100%',
+                    height: 'max-content',
+                    minHeight: '280px',
+                    background: '#ffffff',
+                    border: '1px solid #eaeaea',
+                    boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08)',
+                    borderRadius: '24px',
+                    padding: '50px 60px',
+                    transform: `translateY(${translateY}px) translateX(${translateX}px) scale(${scale})`,
+                    opacity: opacity,
+                    zIndex: zIndex,
+                    transition: 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
+                    pointerEvents: rel === 0 ? 'auto' : 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    gap: '40px'
+                  }}
+                >
+                  <blockquote style={{ fontSize: '1.4rem', lineHeight: '1.7', color: '#000000', fontWeight: '500', margin: 0 }}>
+                    {item.quote}
+                  </blockquote>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                    <img src={item.img} alt={`${item.name} Avatar`} style={{ width: '60px', height: '60px', borderRadius: '50%', objectFit: 'cover', boxShadow: '0 5px 15px rgba(0,0,0,0.1)' }} />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <h4 style={{ margin: 0, color: '#000000', fontSize: '1.1rem', fontWeight: '800' }}>{item.name}</h4>
+                      <p style={{ margin: 0, color: '#666666', fontSize: '0.9rem', fontWeight: '500' }}>{item.role}</p>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
-          {/* Testimonials Controls Row */}
-          <div className="testimonial-controls">
-            <div className="dot-indicators" id="testimonialDots">
-              {testimonialsData.map((_, idx) => (
-                <span
-                  key={idx}
-                  className={`dot ${idx === testimonialIndex ? "active" : ""}`}
-                  onClick={() => setTestimonialIndex(idx)}
-                ></span>
-              ))}
-            </div>
-            <div className="slider-arrows">
-              <button
-                className="slider-btn prev-btn"
-                id="prevTestimonialBtn"
-                aria-label="Previous Review"
-                onClick={prevTestimonial}
-              >
-                <i className="fa-solid fa-chevron-left"></i>
-              </button>
-              <button
-                className="slider-btn next-btn"
-                id="nextTestimonialBtn"
-                aria-label="Next Review"
-                onClick={nextTestimonial}
-              >
-                <i className="fa-solid fa-chevron-right"></i>
-              </button>
-            </div>
-          </div>
+          <button
+            className="slider-btn next-btn"
+            onClick={nextTestimonial}
+            style={{ zIndex: 10, position: 'absolute', right: '10%', background: '#fff', border: '1px solid #eaeaea', borderRadius: '50%', width: '60px', height: '60px', color: '#000', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}
+          >
+            <i className="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
       </section>
 
@@ -856,31 +987,8 @@ function Home() {
       </section>
 
       {/* WORK TOGETHER CTA SECTION */}
-      <section className="work-together-home-section" style={{ margin: "90px 0" }} data-animate="fadeInUp">
-        <div className="work-together-card">
-          <div>
-            <h2 className="together-title">
-              LET'S WORK <br />
-              TOGETHER
-            </h2>
-            <p className="together-desc">
-              Have an upcoming product launch, brand refresh, or aggressive
-              scaling target? Partner with Skull Solution and command your market today.
-            </p>
-          </div>
-
-          <div className="together-btn-group">
-            <button
-              type="button"
-              className="btn-dark-solid"
-              onClick={() => setIsBookModalOpen(true)}
-              style={{ border: "none", cursor: "pointer" }}
-            >
-              Book Service
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* WORK TOGETHER CTA SECTION */}
+      <PricingCTA onGetStarted={() => setIsBookModalOpen(true)} />
 
       {/* FAQs Section */}
       <section className="faq-section" id="faq">

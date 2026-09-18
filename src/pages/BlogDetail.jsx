@@ -28,7 +28,7 @@ const BlogDetail = () => {
           />
           <div className="bd-author-info">
             <span className="bd-author-name">Emily Johnson</span>
-            <span className="bd-author-role">CEO, Noira Marketing Co.</span>
+            <span className="bd-author-role">CEO, Skull Solution Marketing Co.</span>
           </div>
         </div>
       </div>

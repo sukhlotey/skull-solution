@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ProcessWheelSection from "../components/ProcessWheelSection.jsx";
+import PricingCTA from "../components/PricingCTA.jsx";
 import "./Services.css";
 
 const COMPETENCIES_DATA = [
@@ -210,27 +211,7 @@ const Services = () => {
       </div>
 
       {/* SECTION 4: WORK TOGETHER CONTAINER */}
-      <div className="work-together-card">
-        <div>
-          <h2 className="together-title">
-            LET'S WORK <br />
-            TOGETHER
-          </h2>
-          <p className="together-desc">
-            Have an upcoming product launch, brand refresh, or aggressive
-            scaling target? Partner with Noira and command your market today.
-          </p>
-        </div>
-
-        <div className="together-btn-group">
-          <a href="/appointment" className="btn-dark-solid">
-            Book a Strategy Call
-          </a>
-          <a href="/contact" className="btn-dark-outline">
-            Download Pitch Deck
-          </a>
-        </div>
-      </div>
+      <PricingCTA onGetStarted={() => window.location.href = '/appointment'} />
     </div>
   );
 };
