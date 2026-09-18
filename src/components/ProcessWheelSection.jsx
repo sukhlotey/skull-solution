@@ -77,16 +77,6 @@ const ProcessWheelSection = () => {
                 </linearGradient>
               </defs>
 
-              {/* Curved Background Ribbon Flow */}
-              <path
-                className="process-bg-ribbon"
-                d="M 550 -50 C 700 150, 250 250, 250 450 C 250 600, 450 700, 600 750"
-                fill="none"
-                stroke="url(#waveGrad)"
-                strokeWidth="110"
-                strokeLinecap="round"
-              />
-
               {/* Concentric Dashed Orbits */}
               <circle cx="350" cy="350" r="160" className="process-dash-orbit orbit-inner" />
               <circle cx="350" cy="350" r="260" className="process-dash-orbit orbit-outer" />

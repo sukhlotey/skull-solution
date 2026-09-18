@@ -75,8 +75,10 @@ body {
     justify-content: space-between;
     padding: 16px 24px;
     margin-bottom: 24px;
-    position: relative;
-    z-index: 100;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    z-index: 1000;
 }
 
 .nav-brand a {
@@ -3618,7 +3620,7 @@ body {
     }
 
     .nav-link {
-        font-size: 30px;
+        font-size: 27px;
     }
 
     .hero-description {
@@ -3630,7 +3632,7 @@ body {
     }
 
     .tag-pill {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .brands-title {
